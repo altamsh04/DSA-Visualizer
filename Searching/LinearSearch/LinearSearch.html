@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Visualizer - Linear Search</title>
+    <link rel="stylesheet" href="LinearSearch.css">
+</head>
+<body>
+    <nav>
+        <h1>Linear Search</h1>
+        <p>Linear search is a simple method for finding a specific item in a list. It works by checking each element in the list one by one, starting from the beginning, until the desired item is found or the end of the list is reached.</p>
+        <span>Time Complexity O(n)</span>
+    </nav>
+    
+    <div class="main-container">
+        <div class="linear-search-container">
+        </div>
+    </div>
+    <footer>
+        
+        <p style="color: brown;" id="alertTextMessage"></p>
+        <div class="linear-search-input-container">
+            <input type="text" name="inputList" id="inputList" placeholder="Enter a number eg. 10,20,30 (separated by ,)">
+            <input type="button" value="Submit" id="submitInputNumber">
+        </div>
+        <div class="linear-search-input-container">
+            <input type="number" name="inputNumber" id="inputNumber" placeholder="Search a number">
+            <input type="button" value="Search" id="searchInputNumber">
+        </div>
+    </footer>
+    <script src="LinearSearch.js"></script>
+</body>
+</html>
