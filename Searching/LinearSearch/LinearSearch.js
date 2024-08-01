@@ -2,7 +2,6 @@
 let inputNumbers = [10, 5, 23, 54, 89, 100];
 let linearSearchContainer = document.querySelector('.linear-search-container');
 let alertTextMessage = document.getElementById('alertTextMessage');
-
 // Render array list on document
 function renderArray() {
     linearSearchContainer.innerHTML = '';
@@ -38,6 +37,7 @@ submitInputNumber.addEventListener('click', function() {
     renderArray();
 });
 
+// Perform linear search operation on array list items
 // Perform linear search operation on array list items
 function linearSearch(searchNum, arr) {
     let found = false;
