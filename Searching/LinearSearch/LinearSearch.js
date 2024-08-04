@@ -13,6 +13,7 @@ function renderArray() {
 
         let button = document.createElement('button');
         let indexLabel = document.createElement('label');
+        let icon = document.createElement('i');
 
         button.textContent = item;
         indexLabel.textContent = index;
@@ -20,8 +21,13 @@ function renderArray() {
         button.id = index;
         button.classList.add('input-numbers-btn');
 
+        icon.id = `icon-${index}`;
+        icon.classList.add('fa-solid', 'fa-arrow-up');
+        icon.style.display = 'none';
+
         numberedItemContainer.appendChild(indexLabel);
         numberedItemContainer.appendChild(button);
+        numberedItemContainer.appendChild(icon);
 
         searchContainer.appendChild(numberedItemContainer);
     });
@@ -61,10 +67,14 @@ function linearSearch(searchTarget, numberArray) {
             const buttonElement = document.getElementById(i);
             buttonElement.classList.add('selected-input-number');
 
+            const iconElement = document.getElementById(`icon-${i}`);
+            iconElement.style.display = 'block';
+
             if (numberArray[i] == searchTarget) {
                 found = true;
                 setTimeout(() => {
                     buttonElement.classList.remove('selected-input-number');
+                    iconElement.style.display = 'none';
                     buttonElement.classList.add('input-number-found');
                     alertTextMessage.textContent = `Element present at index ${i}`;
                 }, 1000);
@@ -72,6 +82,7 @@ function linearSearch(searchTarget, numberArray) {
             } else {
                 setTimeout(() => {
                     buttonElement.classList.remove('selected-input-number');
+                    iconElement.style.display = 'none';
                 }, 1000);
             }
 
