@@ -24,20 +24,21 @@ searchInputNumber.addEventListener('click', function() {
     linearSearch(parseInt(inputNumberValue), inputNumbers);
 });
 
+// 
 let submitInputNumber = document.getElementById('submitInputNumber');
 submitInputNumber.addEventListener('click', function() {
     let inputList = document.getElementById('inputList').value;
     let newArrayNumbers = inputList.split(',').map(Number);
-    if (newArrayNumbers >= 20) {
-
-    }
     inputNumbers.length = 0;
-    inputNumbers = newArrayNumbers;
-    console.log(inputNumbers);
-    renderArray();
+    if (newArrayNumbers.length > 10) {
+        alertTextMessage.textContent = "Array size must lesser than or equal to 10";
+    }
+    else {
+        inputNumbers = newArrayNumbers;
+        renderArray();
+    }
 });
 
-// Perform linear search operation on array list items
 // Perform linear search operation on array list items
 function linearSearch(searchNum, arr) {
     let found = false;
