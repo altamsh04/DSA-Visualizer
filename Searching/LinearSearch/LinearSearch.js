@@ -2,6 +2,7 @@
 let inputNumbers = [10, 5, 23, 54, 89, 100];
 let linearSearchContainer = document.querySelector('.linear-search-container');
 let alertTextMessage = document.getElementById('alertTextMessage');
+
 // Render array list on document
 function renderArray() {
     linearSearchContainer.innerHTML = '';
@@ -24,12 +25,14 @@ searchInputNumber.addEventListener('click', function() {
     linearSearch(parseInt(inputNumberValue), inputNumbers);
 });
 
-// 
+// Take user input for new array
 let submitInputNumber = document.getElementById('submitInputNumber');
 submitInputNumber.addEventListener('click', function() {
     let inputList = document.getElementById('inputList').value;
     let newArrayNumbers = inputList.split(',').map(Number);
     inputNumbers.length = 0;
+    
+    // Prevent over limit and set to only array size 10
     if (newArrayNumbers.length > 10) {
         alertTextMessage.textContent = "Array size must lesser than or equal to 10";
     }
