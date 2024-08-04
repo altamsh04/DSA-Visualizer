@@ -1,18 +1,29 @@
 // Array list default inputs
 let inputNumbers = [10, 5, 23, 54, 89, 100];
-let linearSearchContainer = document.querySelector('.linear-search-container');
+let searchContainer = document.querySelector('.linear-search-container');
 let alertTextMessage = document.getElementById('alertTextMessage');
 
 // Render array list on document
 function renderArray() {
-    linearSearchContainer.innerHTML = '';
+    searchContainer.innerHTML = '';
     alertTextMessage.textContent = '';
     inputNumbers.forEach((item, index) => {
-        let inputNumberButton = document.createElement('button');
-        inputNumberButton.textContent = item;
-        inputNumberButton.id = index;
-        inputNumberButton.classList.add('input-numbers-btn');
-        linearSearchContainer.appendChild(inputNumberButton);
+        let numberedItemContainer = document.createElement('div');
+        numberedItemContainer.classList.add('linear-search-container-with-index');
+
+        let button = document.createElement('button');
+        let indexLabel = document.createElement('label');
+
+        button.textContent = item;
+        indexLabel.textContent = index;
+        
+        button.id = index;
+        button.classList.add('input-numbers-btn');
+
+        numberedItemContainer.appendChild(indexLabel);
+        numberedItemContainer.appendChild(button);
+
+        searchContainer.appendChild(numberedItemContainer);
     });
 }
 renderArray();
@@ -21,58 +32,58 @@ renderArray();
 let searchInputNumber = document.getElementById('searchInputNumber');
 searchInputNumber.addEventListener('click', function() {
     renderArray();
-    let inputNumberValue = document.getElementById('inputNumber').value;
-    linearSearch(parseInt(inputNumberValue), inputNumbers);
+    let targetValue = document.getElementById('inputNumber').value;
+    linearSearch(parseInt(targetValue), inputNumbers);
 });
 
 // Take user input for new array
 let submitInputNumber = document.getElementById('submitInputNumber');
 submitInputNumber.addEventListener('click', function() {
     let inputList = document.getElementById('inputList').value;
-    let newArrayNumbers = inputList.split(',').map(Number);
+    let newNumbers = inputList.split(',').map(Number);
     inputNumbers.length = 0;
     
     // Prevent over limit and set to only array size 10
-    if (newArrayNumbers.length > 10) {
+    if (newNumbers.length > 10) {
         alertTextMessage.textContent = "Array size must lesser than or equal to 10";
     }
     else {
-        inputNumbers = newArrayNumbers;
+        inputNumbers = newNumbers;
         renderArray();
     }
 });
 
 // Perform linear search operation on array list items
-function linearSearch(searchNum, arr) {
+function linearSearch(searchTarget, numberArray) {
     let found = false;
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < numberArray.length; i++) {
         setTimeout(() => {
-            const element = document.getElementById(i);
-            element.classList.add('selected-input-number');
+            const buttonElement = document.getElementById(i);
+            buttonElement.classList.add('selected-input-number');
 
-            if (arr[i] == searchNum) {
+            if (numberArray[i] == searchTarget) {
                 found = true;
                 setTimeout(() => {
-                    element.classList.remove('selected-input-number');
-                    element.classList.add('input-number-found');
+                    buttonElement.classList.remove('selected-input-number');
+                    buttonElement.classList.add('input-number-found');
                     alertTextMessage.textContent = `Element present at index ${i}`;
                 }, 1000);
                 return;
             } else {
                 setTimeout(() => {
-                    element.classList.remove('selected-input-number');
+                    buttonElement.classList.remove('selected-input-number');
                 }, 1000);
             }
 
             // If this is the last iteration and the number was not found
-            if (i === arr.length - 1 && !found) {
+            if (i === numberArray.length - 1 && !found) {
                 setTimeout(() => {
                     alertTextMessage.textContent = 'Element not present in that array';
                 }, 1000);
             }
         }, i * 1000);
 
-        if (arr[i] == searchNum) {
+        if (numberArray[i] == searchTarget) {
             break;
         }
     }
