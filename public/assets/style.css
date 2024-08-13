@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Source Sans 3",sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4.5rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+.dsa-concepts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Set to 2 columns */
+    gap: 30px; /* Increase the gap between cards */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.dsa-concepts-container div {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 50px; /* Increase padding for larger card size */
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dsa-concepts-container div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dsa-concepts-container label {
+    color: white;
+    padding: 4px;
+    margin: 4px;
+    font-weight: bold;
+    font-size: 2.5rem;
+    display: block;
+}
+
+/* Button Styling */
+.view-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 12px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.view-more-btn:hover {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Arrow Styling */
+.view-more-btn::after {
+    content: '→';
+    margin-left: 10px;
+    transition: margin-left 0.3s ease;
+}
+
+.view-more-btn:hover::after {
+    margin-left: 20px;
+}
+
+@media (max-width: 900px) {
+    .dsa-concepts-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .dsa-concepts-container {
+        grid-template-columns: 1fr;
+    }
+}

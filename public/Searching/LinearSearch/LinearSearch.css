@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+:root {
+    --background: linear-gradient(135deg, #4CAF97 0%, #51C6AB 100%);
+    --button-background: #1f1f1f;
+    --text-color: #f7f9f9;
+    --text-color-hover: #abb2b9;
+    --footer-background: #1f1f1f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+body {
+    font-family: "Source Sans 3",sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4px;
+}
+
+nav h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+nav p {
+    font-size: 1rem;
+    margin: 10px 0;
+    max-width: 800px; /* Optional: limit paragraph width for better readability */
+    color: var(--text-color);
+}
+
+nav span {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Adjust height to account for fixed header and footer */
+    padding: 20px;
+    text-align: center;
+}
+
+.linear-search-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+}
+
+.linear-search-container-with-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    flex-shrink: 0;
+}
+
+.input-numbers-btn {
+    font-size: 1rem;
+    margin: 5px;
+    padding: 10px;
+    color: var(--text-color);
+    background: var(--button-background);;
+    border: 2px solid var(--background);;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+    max-width: 100px;
+    text-align: center;
+}
+
+.input-numbers-btn:hover {
+    background: var(--background);
+    border-color: var(--background);
+}
+
+.selected-input-number {
+    background: var(--background);;
+}
+
+.input-number-found {
+    background: #a3e4d7;
+    color: var(--background);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--footer-background);;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px;
+}
+
+footer p {
+    color: var(--text-color);
+    margin: 0;
+}
+
+.linear-search-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.linear-search-input-container input[type="number"],
+.linear-search-input-container input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.linear-search-input-container input[type="button"] {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    background: var(--background);
+    color: #fff;
+    border: none;
+    width: calc(100% - 20px);
+}
+
+.linear-search-input-container input[type="button"]:hover {
+    background: var(--text-color-hover);
+    color: var(--background);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    nav h1 {
+        font-size: 1.8rem;
+    }
+
+    nav p {
+        font-size: 0.9rem;
+    }
+
+    nav span {
+        font-size: 1rem;
+    }
+
+    .linear-search-container {
+        gap: 8px;
+    }
+
+    .linear-search-container-with-index {
+        margin: 3px;
+    }
+
+    .linear-search-input-container input[type="number"],
+    .linear-search-input-container input[type="text"] {
+        font-size: 0.9rem;
+    }
+
+    .linear-search-input-container input[type="button"] {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav h1 {
+        font-size: 1.5rem;
+    }
+
+    nav p {
+        font-size: 0.8rem;
+    }
+
+    nav span {
+        font-size: 0.9rem;
+    }
+
+    .linear-search-container {
+        gap: 6px;
+    }
+
+    .linear-search-container-with-index {
+        margin: 2px;
+    }
+
+    .linear-search-input-container input[type="number"],
+    .linear-search-input-container input[type="text"] {
+        font-size: 0.8rem;
+    }
+
+    .linear-search-input-container input[type="button"] {
+        font-size: 0.8rem;
+    }
+}

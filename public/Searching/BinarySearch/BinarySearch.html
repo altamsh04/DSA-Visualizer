@@ -10,26 +10,28 @@
 <body>
     <nav>
         <h1>Binary Search</h1>
-        <p style="padding: 8px;">Binary search is an efficient algorithm for locating a target value within a sorted array. It operates on the divide-and-conquer principle, repeatedly halving the search interval until the target is found or determined to be absent.</p>
+        <p>Binary search is an efficient algorithm for locating a target value within a sorted array. It operates on the divide-and-conquer principle, repeatedly halving the search interval until the target is found or determined to be absent.</p>
         <span>Time Complexity O(log n)</span>
     </nav>
     
     <div class="main-container">
         <div class="binary-search-container">
+            <!-- Content for binary search visualization can be added here -->
         </div>
     </div>
+
     <footer>
-        
-        <p style="color: brown;" id="alertTextMessage"></p>
+        <p id="alertTextMessage"></p>
         <div class="binary-search-input-container">
-            <input type="text" name="inputList" id="inputList" placeholder="Enter a number eg. 10,20,30 (separated by ,)">
+            <input type="text" name="inputList" id="inputList" placeholder="Enter numbers eg.10,20,30...">
             <input type="button" value="Submit" id="submitInputNumber">
         </div>
         <div class="binary-search-input-container">
-            <input type="number" name="inputNumber" id="inputNumber" placeholder="Search a number">
+            <input type="number" name="inputNumber" id="inputNumber" placeholder="Search a number...">
             <input type="button" value="Search" id="searchInputNumber">
         </div>
     </footer>
+
     <script src="binarySearch.js"></script>
 </body>
 </html>
